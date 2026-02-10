@@ -61,24 +61,24 @@ export const Hero = () => {
         </motion.h1>
 
         <motion.div variants={itemVariants} className={styles.subtitle}>
-          <span className={styles.typewriter}>Full-Stack Developer</span>
+          <span className={styles.typewriter}>Full-Stack Developer | AI Enthusiast</span>
           <span className={styles.cursor}>|</span>
         </motion.div>
 
         <motion.p variants={itemVariants} className={styles.description}>
-          Crafting exceptional digital experiences with modern technologies.
-          Specialized in React, Node.js, and cloud architecture. Passionate
-          about building scalable, secure, and beautiful applications.
+          Passionate Full-Stack Web Developer and AI Developer from Rwanda 🇷🇼. 
+          Building innovative web applications with Next.js, React, Node.js, Java, and Python. 
+          Experienced in AI health systems, open-source projects, and creating impactful tech solutions.
         </motion.p>
 
         <motion.div variants={itemVariants} className={styles.stats}>
           <div className={styles.stat}>
-            <span className={styles.statNumber}>4+</span>
-            <span className={styles.statLabel}>Years Experience</span>
+            <span className={styles.statNumber}>25+</span>
+            <span className={styles.statLabel}>Certificates</span>
           </div>
           <div className={styles.stat}>
-            <span className={styles.statNumber}>50+</span>
-            <span className={styles.statLabel}>Projects Completed</span>
+            <span className={styles.statNumber}>8+</span>
+            <span className={styles.statLabel}>Major Projects</span>
           </div>
           <div className={styles.stat}>
             <span className={styles.statNumber}>15+</span>
@@ -107,6 +107,7 @@ export const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialIcon}
+            title="GitHub"
           >
             <FiGithub />
           </a>
@@ -115,8 +116,16 @@ export const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialIcon}
+            title="LinkedIn"
           >
             <FiLinkedin />
+          </a>
+          <a
+            href="mailto:pacifiquem58@gmail.com"
+            className={styles.socialIcon}
+            title="Email"
+          >
+            <FiMail />
           </a>
         </motion.div>
       </motion.div>

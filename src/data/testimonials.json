@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Dr. Sarah Uwase",
+    "role": "Principal at Mere du Verbe School",
+    "image": "https://i.pravatar.cc/150?img=5",
+    "text": "Pacifique developed our E-Record Management System which has transformed how we manage student data. His technical expertise and dedication to quality are exceptional. The system is secure, user-friendly, and exactly what we needed.",
+    "rating": 5
+  },
+  {
+    "name": "Jean-Claude Niyonzima",
+    "role": "Tech Lead at Umurava Platform",
+    "image": "https://i.pravatar.cc/150?img=13",
+    "text": "Working with Pacifique on the Umurava mentorship platform was fantastic. His frontend development skills and attention to UI/UX details brought our vision to life. He's a talented developer with great problem-solving abilities.",
+    "rating": 5
+  },
+  {
+    "name": "Emmanuel Habimana",
+    "role": "Project Manager at CacheNet",
+    "image": "https://i.pravatar.cc/150?img=12",
+    "text": "Pacifique's work on CacheNet was outstanding. He built both web and mobile applications that work seamlessly offline, solving a critical problem for students. His full-stack capabilities and innovative thinking are impressive.",
+    "rating": 5
+  },
+  {
+    "name": "Grace Mukamana",
+    "role": "Mentor at ALX Africa",
+    "image": "https://i.pravatar.cc/150?img=1",
+    "text": "As Pacifique's mentor at ALX, I've watched him grow into an exceptional developer. His passion for AI and web development, combined with his work ethic, makes him stand out. He's always eager to learn and help others.",
+    "rating": 5
+  },
+  {
+    "name": "David Mugisha",
+    "role": "Coach at Rwanda Coding Academy",
+    "image": "https://i.pravatar.cc/150?img=14",
+    "text": "Pacifique is one of our most dedicated students. His AI Health Assistant project showcases his ability to combine technical skills with real-world problem solving. He's a natural leader and team player.",
+    "rating": 5
+  }
+]

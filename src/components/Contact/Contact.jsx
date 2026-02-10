@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   FiMail,
   FiGithub,
   FiLinkedin,
-  FiArrowRight,
   FiMapPin,
   FiPhone,
+  FiSend,
+  FiUser,
+  FiMessageSquare,
 } from "react-icons/fi";
 import styles from "./Contact.module.css";
 
@@ -16,6 +20,41 @@ export const Contact = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate form submission (replace with actual EmailJS or backend API)
+    setTimeout(() => {
+      toast.success("Message sent successfully! I'll get back to you soon.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setIsSubmitting(false);
+    }, 1500);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -42,41 +81,62 @@ export const Contact = () => {
 
   return (
     <footer id="contact" className={styles.container} ref={ref}>
+      <ToastContainer theme="dark" />
+      
+      <motion.div
+        className={styles.header}
+        initial={{ opacity: 0, y: 30 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6 }}
+      >
+        <motion.span
+          className={styles.sectionLabel}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={inView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.5 }}
+        >
+          Get In Touch
+        </motion.span>
+        <h2 className={styles.title}>Let's Work Together</h2>
+        <p className={styles.subtitle}>
+          Have a project in mind? Let's create something amazing together!
+        </p>
+      </motion.div>
+
       <motion.div
         className={styles.content}
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
       >
-        <motion.div className={styles.textSection} variants={itemVariants}>
-          <span className={styles.sectionLabel}>Get In Touch</span>
-          <h2 className={styles.title}>Let's Work Together</h2>
-          <p className={styles.description}>
-            I'm always open to discussing new projects, creative ideas, or
-            opportunities to be part of your vision. Feel free to{" "}
-            <span className={styles.highlight}>reach out</span> and let's create
-            something amazing together!
-          </p>
-
-          <div className={styles.contactInfo}>
-            <div className={styles.infoItem}>
-              <div className={styles.infoIcon}>
-                <FiMapPin />
-              </div>
-              <div className={styles.infoText}>
-                <span className={styles.infoLabel}>Location</span>
-                <span className={styles.infoValue}>Kigali, Rwanda</span>
-              </div>
+        <motion.div className={styles.infoSection} variants={itemVariants}>
+          <div className={styles.infoCard}>
+            <div className={styles.infoIcon}>
+              <FiMapPin />
             </div>
+            <div className={styles.infoText}>
+              <h3>Location</h3>
+              <p>Kigali, Rwanda</p>
+            </div>
+          </div>
 
-            <div className={styles.infoItem}>
-              <div className={styles.infoIcon}>
-                <FiMail />
-              </div>
-              <div className={styles.infoText}>
-                <span className={styles.infoLabel}>Email</span>
-                <span className={styles.infoValue}>pacifiquem58@gmail.com</span>
-              </div>
+          <div className={styles.infoCard}>
+            <div className={styles.infoIcon}>
+              <FiMail />
+            </div>
+            <div className={styles.infoText}>
+              <h3>Email</h3>
+              <p>pacifiquem58@gmail.com</p>
+            </div>
+          </div>
+
+          <div className={styles.infoCard}>
+            <div className={styles.infoIcon}>
+              <FiPhone />
+            </div>
+            <div className={styles.infoText}>
+              <h3>Phone</h3>
+              <p>+250 795 653 123</p>
             </div>
           </div>
 
@@ -97,72 +157,100 @@ export const Contact = () => {
             >
               <FiLinkedin />
             </a>
+            <a
+              href="mailto:pacifiquem58@gmail.com"
+              className={styles.socialLink}
+            >
+              <FiMail />
+            </a>
           </div>
         </motion.div>
 
-        <motion.div className={styles.linksSection} variants={itemVariants}>
-          <ul className={styles.links}>
-            <motion.li variants={itemVariants} whileHover={{ scale: 1.02 }}>
-              <a
-                href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=pacifiquem58@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.link}
-              >
-                <div className={styles.linkIcon}>
-                  <FiMail />
-                </div>
-                <div className={styles.linkContent}>
-                  <span className={styles.linkTitle}>Email Me</span>
-                  <span className={styles.linkDescription}>
-                    Drop me a message anytime
-                  </span>
-                </div>
-                <FiArrowRight className={styles.linkArrow} />
-              </a>
-            </motion.li>
+        <motion.form
+          className={styles.form}
+          variants={itemVariants}
+          onSubmit={handleSubmit}
+        >
+          <div className={styles.formGroup}>
+            <div className={styles.inputWrapper}>
+              <FiUser className={styles.inputIcon} />
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className={styles.input}
+              />
+            </div>
+          </div>
 
-            <motion.li variants={itemVariants} whileHover={{ scale: 1.02 }}>
-              <a
-                href="https://www.linkedin.com/in/mugisha-pacifique-142b0931b/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.link}
-              >
-                <div className={styles.linkIcon}>
-                  <FiLinkedin />
-                </div>
-                <div className={styles.linkContent}>
-                  <span className={styles.linkTitle}>LinkedIn</span>
-                  <span className={styles.linkDescription}>
-                    Let's connect professionally
-                  </span>
-                </div>
-                <FiArrowRight className={styles.linkArrow} />
-              </a>
-            </motion.li>
+          <div className={styles.formGroup}>
+            <div className={styles.inputWrapper}>
+              <FiMail className={styles.inputIcon} />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className={styles.input}
+              />
+            </div>
+          </div>
 
-            <motion.li variants={itemVariants} whileHover={{ scale: 1.02 }}>
-              <a
-                href="https://github.com/mfique"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.link}
-              >
-                <div className={styles.linkIcon}>
-                  <FiGithub />
-                </div>
-                <div className={styles.linkContent}>
-                  <span className={styles.linkTitle}>GitHub</span>
-                  <span className={styles.linkDescription}>
-                    Check out my code
-                  </span>
-                </div>
-                <FiArrowRight className={styles.linkArrow} />
-              </a>
-            </motion.li>
-          </ul>
-        </motion.div>
+          <div className={styles.formGroup}>
+            <div className={styles.inputWrapper}>
+              <FiMessageSquare className={styles.inputIcon} />
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                value={formData.subject}
+                onChange={handleChange}
+                required
+                className={styles.input}
+              />
+            </div>
+          </div>
+
+          <div className={styles.formGroup}>
+            <div className={styles.inputWrapper}>
+              <FiMessageSquare className={styles.inputIcon} />
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows="6"
+                className={styles.textarea}
+              />
+            </div>
+          </div>
+
+          <motion.button
+            type="submit"
+            className={styles.submitBtn}
+            disabled={isSubmitting}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {isSubmitting ? (
+              <>
+                <span className={styles.spinner} />
+                Sending...
+              </>
+            ) : (
+              <>
+                <FiSend />
+                Send Message
+              </>
+            )}
+          </motion.button>
+        </motion.form>
       </motion.div>
 
       <motion.div

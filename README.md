@@ -1,155 +1,185 @@
-# 🚀 Modern Portfolio Website
+# 🚀 Pacifique Mugisha - Portfolio Website
 
-A stunning, modern portfolio website built with React, featuring beautiful animations, glassmorphism effects, and an intuitive user experience.
+> Full-Stack Web Developer | AI Enthusiast | Open-Source Contributor
 
-## ✨ Features
+A modern, feature-rich portfolio website showcasing my projects, skills, and experience as a Full-Stack Developer and AI enthusiast from Rwanda 🇷🇼.
 
-### 🎨 Design & Animations
-- **Glassmorphism UI** - Modern frosted glass effects with backdrop blur
-- **Framer Motion Animations** - Smooth, professional animations throughout
-- **3D Card Tilts** - Interactive project cards with vanilla-tilt
-- **Parallax Effects** - Floating elements and smooth scrolling
-- **Gradient Backgrounds** - Animated gradient overlays
-- **Magnetic Hover Effects** - Interactive buttons and links
-- **Scroll-triggered Animations** - Elements animate as you scroll
-- **Custom Cursor Effects** - Enhanced visual feedback
+## 👨‍💻 About Me
 
-### 🎯 Sections
-1. **Hero Section**
-   - Animated greeting with wave emoji
-   - Gradient text effects
-   - Typewriter cursor animation
-   - Stats counter
-   - Floating geometric shapes
-   - Social links with hover effects
+I'm **Pacifique Mugisha**, a passionate Full-Stack Web Developer and AI Developer currently studying Advanced Software Engineering at **Rwanda Coding Academy** (Expected Graduation: 2026).
 
-2. **About Section**
-   - Glowing image container
-   - Animated service cards
-   - Statistics showcase
-   - Smooth reveal animations
+### 🎓 Education & Training
+- **Rwanda Coding Academy** - Advanced Software Engineering
+- **ALX Africa** - Software Engineering & AI Internship
+- **Harvard Remote Internship** - Global Remote Work & Professional Skills
+- **Code Alpha** - Python & Web Development Internship
+- **ThinkCyber** - Cybersecurity & Systems Security
+- **DTP Academy** - DevOps & Cybersecurity Training
+- **Cyberium** - Linux, Python, Networking
+- **Yale Young African Scholars Program**
+- **25+ Verified Certificates** in AI, Cybersecurity, Linux, Web Development
 
-3. **Experience Section**
-   - Animated skill grid
-   - Interactive skill cards with hover effects
-   - Timeline-based work history
-   - Company logos and descriptions
+### 💼 Experience
+- Software Engineering Intern at **ALX Africa**
+- Python & Web Development Intern at **Code Alpha**
+- Cybersecurity Intern at **ThinkCyber**
+- Remote Work Intern at **Harvard University**
+- DevOps Training at **DTP Academy**
+- Linux & Networking at **Cyberium**
 
-4. **Projects Section**
-   - 3D tilt effect cards
-   - Quick action buttons on hover
-   - Technology tags
-   - Live demo and source links
-   - Featured project badges
+## ✨ Portfolio Features
 
-5. **Contact Section**
-   - Multiple contact methods
-   - Animated contact cards
-   - Social media links
-   - Location and email info
-   - Heartbeat animation
+### 🎨 Design
+- **Dark/Light Theme Toggle** - Smooth theme switching with persistent preference
+- **Glassmorphism UI** - Modern frosted glass effects
+- **Gradient System** - Beautiful purple-to-pink color scheme
+- **Particle Background** - Interactive particle network
+- **Smooth Animations** - Framer Motion throughout
+- **Fully Responsive** - Perfect on all devices
+
+### 📱 Sections
+1. **Hero** - Animated introduction with stats
+2. **About** - Background and expertise
+3. **Experience** - Skills grid + work history timeline
+4. **Projects** - 8+ major projects with 3D effects
+5. **Testimonials** - Client reviews carousel
+6. **Contact** - Functional form with validation
+7. **Footer** - Quick links and social media
 
 ### 🛠️ Technical Features
-- **Responsive Design** - Works perfectly on all devices
-- **Modern Navigation** - Sticky navbar with active section tracking
-- **Mobile Menu** - Smooth slide-in mobile navigation
-- **Scroll to Top** - Animated button appears on scroll
-- **Intersection Observer** - Efficient scroll-based animations
-- **Custom Scrollbar** - Styled scrollbar matching the theme
-- **Performance Optimized** - Fast loading and smooth interactions
+- React + Vite for fast development
+- Framer Motion for animations
+- Particles.js for background effects
+- React Toastify for notifications
+- Context API for theme management
+- CSS Modules for styling
+- EmailJS ready for contact form
 
-## 🚀 Getting Started
+## 🚀 Key Projects
 
-### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn
+### 🧠 AI Health Assistant
+Intelligent symptom-to-treatment diagnostic tool using TensorFlow and OpenAI API.
+- **Tech**: Python, TensorFlow, OpenAI API
+- **Role**: Lead Developer
 
-### Installation
+### 🗂️ E-Record Management System
+Secure platform for schools to manage student data, grades, and reports.
+- **Tech**: Next.js, Nest, MongoDB
+- **Used by**: Mere du Verbe & Marie Merci Schools
 
-1. Clone the repository
+### 🌐 CacheNet
+Offline content caching for education - web and mobile apps.
+- **Tech**: Next.js, React Native, Java, Node.js
+
+### 👥 Umurava Platform
+Youth mentorship system supporting empowerment and leadership.
+- **Tech**: Next.js, Tailwind CSS
+
+### 🏆 Igitego
+Athlete performance and stats tracking system.
+- **Tech**: React, Figma
+
+### 📚 Online Library System
+Complete library management with borrowing history.
+- **Tech**: Laravel, PHP, MySQL
+
+## 💻 Tech Stack
+
+### Languages
+JavaScript, TypeScript, Python, PHP, SQL, HTML5, CSS3, Bash, Java, C/C++
+
+### Frontend
+React, Next.js, Tailwind CSS, Bootstrap, Figma
+
+### Backend
+Node.js, Express, Django, Laravel, REST APIs
+
+### Databases
+PostgreSQL, MongoDB, MySQL, SQLite
+
+### Tools & Platforms
+Git/GitHub, Docker, Firebase, Netlify, Vercel, Linux, Postman
+
+### AI & Data
+TensorFlow, OpenAI APIs, Data Analysis, Prompt Engineering
+
+## 🏃 Quick Start
+
 ```bash
-git clone <your-repo-url>
-cd react-portfolio
-```
-
-2. Install dependencies
-```bash
+# Install dependencies
 npm install
-```
 
-3. Start the development server
-```bash
+# Start development server
 npm run dev
-```
 
-4. Build for production
-```bash
+# Build for production
 npm run build
+
+# Preview production build
+npm run preview
 ```
 
-## 📦 Dependencies
+Visit `http://localhost:5173` to see the portfolio.
 
-- **react** - UI library
-- **framer-motion** - Animation library
-- **react-icons** - Icon library
-- **react-intersection-observer** - Scroll detection
-- **vanilla-tilt** - 3D tilt effects
-- **vite** - Build tool
+## 📞 Contact Information
 
-## 🎨 Customization
+- **Email**: pacifiquem58@gmail.com
+- **Phone**: +250 795 653 123
+- **Location**: Kigali, Rwanda 🇷🇼
+- **LinkedIn**: [Mugisha Pacifique](https://www.linkedin.com/in/mugisha-pacifique-142b0931b/)
+- **GitHub**: [@mfique](https://github.com/mfique)
 
-### Colors
-Edit `src/vars.css` to change the color scheme:
-```css
---color-primary: #667eea;
---color-secondary: #764ba2;
---color-accent: #f093fb;
-```
+## 🎯 Interests & Hobbies
 
-### Content
-- **Projects**: Edit `src/data/projects.json`
-- **Skills**: Edit `src/data/skills.json`
-- **Work History**: Edit `src/data/history.json`
+### Professional Interests
+- Artificial Intelligence in Healthcare
+- Open-Source Software Development
+- UI/UX Design
+- Data Analysis
+- Full-Stack Web Development
 
-### Personal Info
-Update the following files:
-- Hero section: `src/components/Hero/Hero.jsx`
-- Contact info: `src/components/Contact/Contact.jsx`
-- About section: `src/components/About/About.jsx`
+### Hobbies
+- 🏐 Volleyball (Captain & MVP)
+- ⚽ Football & Basketball
+- 📚 Reading & Exploring Emerging Tech
+- 🌍 Contributing to Open Source
 
-## 📱 Responsive Breakpoints
+## 🌍 Languages
 
-- Desktop: 1024px and above
-- Tablet: 768px - 1023px
-- Mobile: Below 768px
+- **Kinyarwanda** - Native
+- **English** - Fluent
+- **French** - Intermediate
+- **Swahili** - Conversational
 
-## 🌟 Key Animations
+## 🎓 Certifications
 
-1. **Stagger Children** - Elements animate in sequence
-2. **Spring Physics** - Natural, bouncy animations
-3. **Hover Transforms** - Scale, translate, and rotate effects
-4. **Gradient Shifts** - Animated color transitions
-5. **Float Animations** - Subtle floating elements
-6. **Fade & Slide** - Smooth entrance animations
+Over **25+ verified certificates** in:
+- Artificial Intelligence & Machine Learning
+- Cybersecurity & Systems Security
+- Linux System Administration
+- Python Programming
+- Web Development (Frontend & Backend)
+- Remote Work & Collaboration
+- DevOps & Cloud Computing
+- Data Analysis
 
-## 🎯 Performance Tips
+*Certificates available upon request*
 
-- Images are optimized and lazy-loaded
-- Animations use GPU acceleration
-- Intersection Observer reduces unnecessary renders
-- CSS transforms for smooth 60fps animations
+## 🤝 Open to Opportunities
+
+I'm actively seeking:
+- Remote internships
+- Freelance projects
+- Collaborative opportunities
+- Open-source contributions
+- Full-time positions (after graduation)
 
 ## 📄 License
 
 This project is open source and available under the MIT License.
 
-## 👨‍💻 Author
-
-**Pacifique Mugisha**
-- GitHub: [@mfique](https://github.com/mfique)
-- LinkedIn: [Mugisha Pacifique](https://www.linkedin.com/in/mugisha-pacifique-142b0931b/)
-- Email: pacifiquem58@gmail.com
-
 ---
 
-Built with ♥ using React, Framer Motion, and modern web technologies.
+**Built with ♥ in Rwanda 🇷🇼 by Pacifique Mugisha**
+
+*Making an impact through technology, one project at a time.*

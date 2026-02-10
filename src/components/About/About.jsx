@@ -81,9 +81,11 @@ export const About = () => {
         >
           <motion.p variants={itemVariants} className={styles.description}>
             I'm a <span className={styles.highlight}>full-stack developer</span>{" "}
-            with a passion for creating beautiful, functional, and user-centered
-            digital experiences. With expertise in modern web technologies, I
-            bring ideas to life through clean code and innovative solutions.
+            and <span className={styles.highlight}>AI enthusiast</span> from Rwanda 🇷🇼, 
+            currently studying Advanced Software Engineering at Rwanda Coding Academy. 
+            With expertise in modern web technologies and AI, I bring ideas to life through 
+            clean code and innovative solutions. I've completed internships at ALX Africa, 
+            Code Alpha, ThinkCyber, and Harvard Remote Internship.
           </motion.p>
 
           <ul className={styles.aboutItems}>
@@ -99,7 +101,8 @@ export const About = () => {
                 <h3>Frontend Developer</h3>
                 <p>
                   Building responsive and optimized user interfaces with React,
-                  Next.js, and modern CSS frameworks
+                  Next.js, Tailwind CSS, and modern design systems. Experienced in
+                  creating beautiful, accessible web applications.
                 </p>
               </div>
             </motion.li>
@@ -115,8 +118,9 @@ export const About = () => {
               <div className={styles.aboutItemText}>
                 <h3>Backend Developer</h3>
                 <p>
-                  Developing fast and scalable back-end systems, RESTful APIs,
-                  and database architectures
+                  Developing fast and scalable back-end systems with Node.js, Express,
+                  Django, Laravel, and Java. Expert in RESTful APIs, database design
+                  (PostgreSQL, MongoDB, MySQL), and cloud deployment.
                 </p>
               </div>
             </motion.li>
@@ -130,10 +134,11 @@ export const About = () => {
                 <FiLayout />
               </div>
               <div className={styles.aboutItemText}>
-                <h3>UI/UX Designer</h3>
+                <h3>AI Developer</h3>
                 <p>
-                  Designing intuitive interfaces and creating comprehensive
-                  design systems for seamless experiences
+                  Building intelligent systems with TensorFlow, OpenAI APIs, and
+                  machine learning. Specialized in AI health systems, data analysis,
+                  and prompt engineering for real-world applications.
                 </p>
               </div>
             </motion.li>
@@ -148,16 +153,16 @@ export const About = () => {
         transition={{ duration: 0.6, delay: 0.8 }}
       >
         <div className={styles.statCard}>
-          <div className={styles.statNumber}>4+</div>
-          <div className={styles.statLabel}>Years Experience</div>
+          <div className={styles.statNumber}>25+</div>
+          <div className={styles.statLabel}>Certificates</div>
         </div>
         <div className={styles.statCard}>
-          <div className={styles.statNumber}>50+</div>
-          <div className={styles.statLabel}>Projects Done</div>
+          <div className={styles.statNumber}>8+</div>
+          <div className={styles.statLabel}>Major Projects</div>
         </div>
         <div className={styles.statCard}>
-          <div className={styles.statNumber}>15+</div>
-          <div className={styles.statLabel}>Technologies</div>
+          <div className={styles.statNumber}>7+</div>
+          <div className={styles.statLabel}>Internships</div>
         </div>
       </motion.div>
 

@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiMenu, FiX, FiHome, FiUser, FiBriefcase, FiFolder, FiMail } from "react-icons/fi";
+import { FiMenu, FiX, FiHome, FiUser, FiBriefcase, FiFolder, FiMail, FiSun, FiMoon, FiMessageCircle } from "react-icons/fi";
+import { useTheme } from "../../context/ThemeContext";
 import styles from "./Navbar.module.css";
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      // Update active section based on scroll position
-      const sections = ["home", "about", "experience", "projects", "contact"];
+      const sections = ["home", "about", "experience", "projects", "testimonials", "contact"];
       const current = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
@@ -34,6 +35,7 @@ export const Navbar = () => {
     { name: "About", href: "#about", icon: <FiUser /> },
     { name: "Experience", href: "#experience", icon: <FiBriefcase /> },
     { name: "Projects", href: "#projects", icon: <FiFolder /> },
+    { name: "Testimonials", href: "#testimonials", icon: <FiMessageCircle /> },
     { name: "Contact", href: "#contact", icon: <FiMail /> },
   ];
 
@@ -77,15 +79,29 @@ export const Navbar = () => {
               </a>
             </motion.li>
           ))}
+          <motion.li whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <button onClick={toggleTheme} className={styles.themeToggle}>
+              {theme === "dark" ? <FiSun /> : <FiMoon />}
+            </button>
+          </motion.li>
         </ul>
 
-        <motion.button
-          className={styles.mobileMenuBtn}
-          onClick={() => setMenuOpen(!menuOpen)}
-          whileTap={{ scale: 0.9 }}
-        >
-          {menuOpen ? <FiX /> : <FiMenu />}
-        </motion.button>
+        <div className={styles.mobileActions}>
+          <motion.button
+            onClick={toggleTheme}
+            className={styles.themeToggleMobile}
+            whileTap={{ scale: 0.9 }}
+          >
+            {theme === "dark" ? <FiSun /> : <FiMoon />}
+          </motion.button>
+          <motion.button
+            className={styles.mobileMenuBtn}
+            onClick={() => setMenuOpen(!menuOpen)}
+            whileTap={{ scale: 0.9 }}
+          >
+            {menuOpen ? <FiX /> : <FiMenu />}
+          </motion.button>
+        </div>
       </motion.nav>
 
       <AnimatePresence>

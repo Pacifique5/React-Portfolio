@@ -1,26 +1,50 @@
 [
   {
-    "title": "Umurava-Website",
+    "title": "AI Health Assistant",
+    "imageSrc": "projects/11.png",
+    "description": "Intelligent symptom-to-treatment diagnostic tool using TensorFlow and OpenAI API. Provides conversational AI for virtual health assistance and personalized diagnosis support.",
+    "skills": ["Python", "TensorFlow", "OpenAI API", "AI/ML"],
+    "demo": "https://www.example.com",
+    "source": "https://github.com/mfique"
+  },
+  {
+    "title": "E-Record Management System",
     "imageSrc": "projects/12.png",
-    "description": "This is a full-stack project where i handled both frontend and backend.",
-    "skills": ["NextJs", "Express", "Node", "Redux"],
+    "description": "Secure platform for Mere du Verbe & Marie Merci Schools to store student data, grades, and reports with role-based access controls.",
+    "skills": ["Next.js", "Nest", "MongoDB", "TypeScript"],
     "demo": "https://www.example.com",
     "source": "https://github.com/mfique/Umurava-Web"
   },
   {
-    "title": "NextJs Portfolio",
-    "imageSrc": "projects/11.png",
-    "description": "This NextJs portfolio showcases my skills, projects and experiences.",
-    "skills": ["NextJs", "Express", "Node", "Bootstrap"],
+    "title": "CacheNet - Offline Education",
+    "imageSrc": "projects/2.png",
+    "description": "Web and mobile apps enabling students to access academic content offline during internet outages. Built for educational accessibility.",
+    "skills": ["Next.js", "React Native", "Java", "Node.js"],
     "demo": "https://www.example.com",
-    "source": "https://github.com/mfique/NextJs-Portfolio/tree/master/NextJs-Portfolio"
+    "source": "https://github.com/mfique"
   },
   {
-    "title": "Farm Pro",
-    "imageSrc": "projects/2.png",
-    "description": "This website provides tools, resources and information to farmers",
-    "skills": ["J.Script", "Laravel", "Tailwind", "HTML5"],
+    "title": "Umurava Platform",
+    "imageSrc": "projects/4.png",
+    "description": "Youth mentorship system supporting empowerment and leadership. Designed and built the complete frontend experience.",
+    "skills": ["Next.js", "Tailwind CSS", "React", "TypeScript"],
     "demo": "https://www.example.com",
-    "source": "https://github.com/mfique/FarmPro"
+    "source": "https://github.com/mfique/Umurava-Web"
+  },
+  {
+    "title": "Igitego - Athlete Stats",
+    "imageSrc": "projects/6.png",
+    "description": "Web app to track athlete achievements and performance statistics. Led the design and prototyping phase.",
+    "skills": ["React", "Figma", "JavaScript", "UI/UX"],
+    "demo": "https://www.example.com",
+    "source": "https://github.com/mfique"
+  },
+  {
+    "title": "Online Library System",
+    "imageSrc": "projects/project.png",
+    "description": "Complete library management system with book tracking, borrowing history, and admin panel functionality.",
+    "skills": ["Laravel", "PHP", "MySQL", "HTML/CSS"],
+    "demo": "https://www.example.com",
+    "source": "https://github.com/mfique"
   }
 ]

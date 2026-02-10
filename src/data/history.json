@@ -1,29 +1,74 @@
 [
   {
-    "role": "Software Engineer",
-    "organisation": "UMURAVA",
-    "startDate": "Sept, 2022",
-    "endDate": "Present",
-    "experiences": ["Worked on Umurava-Project.", "Deubgging, fixing issues and testing codes."],
+    "role": "Software Engineering Intern",
+    "organisation": "ALX Africa",
+    "startDate": "2023",
+    "endDate": "2024",
+    "experiences": [
+      "Completed intensive Software Engineering & AI program",
+      "Built full-stack applications using modern technologies",
+      "Collaborated on real-world projects with global teams"
+    ],
     "imageSrc": "history/umurava.png"
   },
   {
-    "role": "UI Designer",
-    "organisation": "RWAMU",
-    "startDate": "Aug, 2021",
-    "endDate": "Aug, 2022",
-    "experiences": ["Designed the Rwamu-Web-Application.", "Coded frontend for Rwamu-Web."],
+    "role": "Python & Web Dev Intern",
+    "organisation": "Code Alpha",
+    "startDate": "2023",
+    "endDate": "2024",
+    "experiences": [
+      "Developed web applications using Python frameworks",
+      "Implemented RESTful APIs and database integrations",
+      "Contributed to open-source projects"
+    ],
     "imageSrc": "history/rwamu.jpg"
   },
   {
-    "role": "Fullstack Dev",
-    "organisation": "IGITEGO",
-    "startDate": "Apr, 2020",
-    "endDate": "Jun, 2020",
+    "role": "Cybersecurity Intern",
+    "organisation": "ThinkCyber",
+    "startDate": "2023",
+    "endDate": "2024",
     "experiences": [
-      "Worked on the Igitego-Frontend.",
-      "Integrated the backend with frontend"
+      "Studied systems security and network protection",
+      "Learned penetration testing and vulnerability assessment",
+      "Gained hands-on experience with security tools"
     ],
     "imageSrc": "history/igitego.jpg"
+  },
+  {
+    "role": "Remote Work Intern",
+    "organisation": "Harvard University",
+    "startDate": "2023",
+    "endDate": "2024",
+    "experiences": [
+      "Developed global remote work and collaboration skills",
+      "Participated in international team projects",
+      "Enhanced professional communication abilities"
+    ],
+    "imageSrc": "history/microsoft.png"
+  },
+  {
+    "role": "DevOps & Security Training",
+    "organisation": "DTP Academy",
+    "startDate": "2022",
+    "endDate": "2023",
+    "experiences": [
+      "Completed DevOps training (Beginner to Advanced)",
+      "Studied Cybersecurity best practices",
+      "Learned CI/CD pipelines and automation"
+    ],
+    "imageSrc": "history/google.png"
+  },
+  {
+    "role": "Linux & Networking Training",
+    "organisation": "Cyberium",
+    "startDate": "2022",
+    "endDate": "2023",
+    "experiences": [
+      "Mastered Linux system administration",
+      "Studied Python for automation and scripting",
+      "Learned networking fundamentals and security"
+    ],
+    "imageSrc": "history/netflix.png"
   }
 ]
