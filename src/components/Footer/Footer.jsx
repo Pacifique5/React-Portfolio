@@ -1,13 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FiGithub, FiLinkedin, FiMail, FiArrowUp, FiHeart } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiMail, FiHeart } from "react-icons/fi";
 import styles from "./Footer.module.css";
 
 export const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   const quickLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
@@ -100,14 +96,6 @@ export const Footer = () => {
         <p className={styles.copyright}>
           © 2026 Pacifique Mugisha. Made with <FiHeart className={styles.heart} /> in Rwanda 🇷🇼
         </p>
-        <motion.button
-          className={styles.scrollTop}
-          onClick={scrollToTop}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <FiArrowUp />
-        </motion.button>
       </div>
     </footer>
   );

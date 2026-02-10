@@ -27,7 +27,7 @@
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #fff 0%, #b8c5d6 100%);
+  background: linear-gradient(135deg, var(--color-text) 0%, var(--color-text-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -42,7 +42,7 @@
 
 .content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 4rem;
   margin-bottom: 4rem;
 }
@@ -68,15 +68,49 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   border-radius: 12px;
   font-size: 1.5rem;
   box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
 }
 
 .skills {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.skillCategory {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.categoryTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid var(--glass-border);
+}
+
+.categoryIcon {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  border-radius: 8px;
+  font-size: 1.2rem;
+}
+
+.skillGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
   gap: 1.5rem;
 }
 
@@ -86,16 +120,16 @@
   align-items: center;
   gap: 1rem;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--glass-bg);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
 }
 
 .skill:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(102, 126, 234, 0.1);
   border-color: rgba(102, 126, 234, 0.5);
   transform: translateY(-10px);
   box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
@@ -107,7 +141,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg);
   border-radius: 12px;
   padding: 0.8rem;
   transition: all 0.3s ease;
@@ -133,107 +167,158 @@
 }
 
 .skill:hover p {
-  color: white;
+  color: var(--color-text);
 }
 
 .historySection {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin-top: 4rem;
 }
 
-.history {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+.timeline {
   position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem 0;
 }
 
-.history::before {
+.timeline::before {
   content: "";
   position: absolute;
-  left: 30px;
-  top: 40px;
-  bottom: 40px;
-  width: 2px;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
   background: linear-gradient(
     180deg,
     transparent 0%,
-    rgba(102, 126, 234, 0.5) 20%,
-    rgba(102, 126, 234, 0.5) 80%,
+    var(--color-primary) 10%,
+    var(--color-secondary) 90%,
     transparent 100%
   );
+  transform: translateX(-50%);
 }
 
-.historyItem {
+.timelineItem {
   display: flex;
-  gap: 2rem;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  transition: all 0.4s ease;
+  justify-content: flex-end;
+  padding-right: 45%;
   position: relative;
+  margin-bottom: 3rem;
 }
 
-.historyItem:hover {
-  background: rgba(255, 255, 255, 0.05);
+.timelineItem:nth-child(even) {
+  justify-content: flex-start;
+  padding-right: 0;
+  padding-left: 45%;
+}
+
+.timelineContent {
+  width: 100%;
+  padding: 3rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.timelineContent:hover {
+  background: rgba(102, 126, 234, 0.05);
   border-color: rgba(102, 126, 234, 0.5);
-  transform: translateX(10px);
+  transform: scale(1.02);
   box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
 }
 
-.historyItem img {
+.timelineContent::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  border: 4px solid var(--color-bg);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+}
+
+.timelineItem .timelineContent::before {
+  right: -64px;
+}
+
+.timelineItem:nth-child(even) .timelineContent::before {
+  left: -64px;
+  right: auto;
+}
+
+.timelineHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.timelineLogo {
   width: 60px;
   height: 60px;
   object-fit: cover;
   border-radius: 12px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--glass-border);
   flex-shrink: 0;
-  transition: all 0.3s ease;
 }
 
-.historyItem:hover img {
-  border-color: rgba(102, 126, 234, 0.5);
-  transform: scale(1.1);
-}
-
-.historyItemDetails {
+.timelineInfo {
   flex: 1;
 }
 
-.historyItemDetails h3 {
-  font-size: 1.3rem;
+.timelineRole {
+  font-size: 1.4rem;
   font-weight: 700;
+  color: var(--color-text);
   margin-bottom: 0.5rem;
-  color: white;
+  line-height: 1.3;
 }
 
-.historyItemDetails > p {
-  font-size: 0.95rem;
+.timelineOrg {
+  font-size: 1.15rem;
   color: var(--color-primary-light);
-  margin-bottom: 1rem;
   font-weight: 600;
+  line-height: 1.4;
 }
 
-.historyItemDetails ul {
+.timelineDate {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  color: var(--color-primary-light);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.timelineExperiences {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1rem;
 }
 
-.historyItemDetails ul li {
-  font-size: 0.95rem;
+.timelineExperiences li {
+  font-size: 1rem;
   color: var(--color-text-secondary);
-  padding-left: 1.5rem;
+  padding-left: 1.8rem;
   position: relative;
-  line-height: 1.6;
+  line-height: 1.7;
+  word-wrap: break-word;
 }
 
-.historyItemDetails ul li::before {
+.timelineExperiences li::before {
   content: "▹";
   position: absolute;
   left: 0;
@@ -252,13 +337,13 @@
 }
 
 .backgroundDecor:nth-child(1) {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   top: 20%;
   left: -10%;
 }
 
 .backgroundDecor:nth-child(2) {
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-secondary));
   bottom: 20%;
   right: -10%;
 }
@@ -268,13 +353,29 @@
     padding: 6rem 5%;
   }
 
-  .content {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+  .skillGrid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   }
 
-  .skills {
-    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  .timeline::before {
+    left: 30px;
+  }
+
+  .timelineItem,
+  .timelineItem:nth-child(even) {
+    justify-content: flex-start;
+    padding-left: 80px;
+    padding-right: 0;
+  }
+
+  .timelineContent {
+    width: 100%;
+  }
+
+  .timelineItem .timelineContent::before,
+  .timelineItem:nth-child(even) .timelineContent::before {
+    left: -60px;
+    right: auto;
   }
 }
 
@@ -299,8 +400,8 @@
     font-size: 1.5rem;
   }
 
-  .skills {
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  .skillGrid {
+    grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
     gap: 1rem;
   }
 
@@ -313,16 +414,15 @@
     height: 50px;
   }
 
-  .historyItem {
-    flex-direction: column;
+  .timelineContent {
     padding: 1.5rem;
   }
 
-  .history::before {
-    display: none;
+  .timelineRole {
+    font-size: 1.1rem;
   }
 
-  .historyItem:hover {
-    transform: translateY(-5px);
+  .timelineOrg {
+    font-size: 1rem;
   }
 }

@@ -17,16 +17,17 @@ export const Projects = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
+    hidden: { y: 50, opacity: 0, scale: 0.9 },
     visible: {
       y: 0,
       opacity: 1,
+      scale: 1,
       transition: {
         type: "spring",
         stiffness: 100,
@@ -65,8 +66,12 @@ export const Projects = () => {
         animate={inView ? "visible" : "hidden"}
       >
         {projects.map((project, id) => (
-          <motion.div key={id} variants={itemVariants}>
-            <ProjectCard project={project} />
+          <motion.div
+            key={id}
+            className={styles.projectItem}
+            variants={itemVariants}
+          >
+            <ProjectCard project={project} index={id} />
           </motion.div>
         ))}
       </motion.div>

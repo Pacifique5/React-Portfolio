@@ -1,26 +1,42 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { FiChevronLeft, FiChevronRight, FiStar } from "react-icons/fi";
+import { FiStar } from "react-icons/fi";
 import styles from "./Testimonials.module.css";
 import testimonials from "../../data/testimonials.json";
 
 export const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollRef = useRef(null);
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
+  // Duplicate testimonials for infinite scroll
+  const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
-  const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
 
-  const currentTestimonial = testimonials[currentIndex];
+    let scrollPosition = 0;
+    const scrollSpeed = 0.5;
+
+    const scroll = () => {
+      scrollPosition += scrollSpeed;
+      
+      if (scrollPosition >= scrollContainer.scrollWidth / 3) {
+        scrollPosition = 0;
+      }
+      
+      scrollContainer.scrollLeft = scrollPosition;
+      requestAnimationFrame(scroll);
+    };
+
+    const animationId = requestAnimationFrame(scroll);
+
+    return () => cancelAnimationFrame(animationId);
+  }, []);
 
   return (
     <section className={styles.container} id="testimonials" ref={ref}>
@@ -44,64 +60,31 @@ export const Testimonials = () => {
         </p>
       </motion.div>
 
-      <div className={styles.testimonialWrapper}>
-        <motion.button
-          className={styles.navButton}
-          onClick={prevTestimonial}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <FiChevronLeft />
-        </motion.button>
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentIndex}
-            className={styles.testimonialCard}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className={styles.quote}>"</div>
-            <div className={styles.stars}>
-              {[...Array(currentTestimonial.rating)].map((_, i) => (
-                <FiStar key={i} className={styles.star} />
-              ))}
-            </div>
-            <p className={styles.text}>{currentTestimonial.text}</p>
-            <div className={styles.author}>
-              <img
-                src={currentTestimonial.image}
-                alt={currentTestimonial.name}
-                className={styles.avatar}
-              />
-              <div className={styles.authorInfo}>
-                <h4 className={styles.name}>{currentTestimonial.name}</h4>
-                <p className={styles.role}>{currentTestimonial.role}</p>
+      <div className={styles.scrollContainer} ref={scrollRef}>
+        <div className={styles.scrollContent}>
+          {duplicatedTestimonials.map((testimonial, index) => (
+            <div key={index} className={styles.testimonialCard}>
+              <div className={styles.quote}>"</div>
+              <div className={styles.stars}>
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <FiStar key={i} className={styles.star} />
+                ))}
+              </div>
+              <p className={styles.text}>{testimonial.text}</p>
+              <div className={styles.author}>
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  className={styles.avatar}
+                />
+                <div className={styles.authorInfo}>
+                  <h4 className={styles.name}>{testimonial.name}</h4>
+                  <p className={styles.role}>{testimonial.role}</p>
+                </div>
               </div>
             </div>
-          </motion.div>
-        </AnimatePresence>
-
-        <motion.button
-          className={styles.navButton}
-          onClick={nextTestimonial}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <FiChevronRight />
-        </motion.button>
-      </div>
-
-      <div className={styles.dots}>
-        {testimonials.map((_, index) => (
-          <button
-            key={index}
-            className={`${styles.dot} ${index === currentIndex ? styles.activeDot : ""}`}
-            onClick={() => setCurrentIndex(index)}
-          />
-        ))}
+          ))}
+        </div>
       </div>
 
       <div className={styles.backgroundDecor} />
