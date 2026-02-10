@@ -13,12 +13,13 @@ import { Projects } from "./components/Projects/Projects";
 import { Testimonials } from "./components/Testimonials/Testimonials";
 import { Footer } from "./components/Footer/Footer";
 import { Loader } from "./components/Loader/Loader";
-import { ThemeProvider } from "./context/ThemeContext";
+import { ThemeProvider, useTheme } from "./context/ThemeContext";
 
-function App() {
+function AppContent() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [particlesInit, setParticlesInit] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,13 +60,15 @@ function App() {
     fpsLimit: 120,
     particles: {
       color: {
-        value: ["#667eea", "#764ba2", "#f093fb"],
+        value: theme === "dark" 
+          ? ["#667eea", "#764ba2", "#f093fb"]
+          : ["#5a67d8", "#6b46c1", "#d946ef"],
       },
       links: {
-        color: "#667eea",
+        color: theme === "dark" ? "#667eea" : "#5a67d8",
         distance: 150,
         enable: true,
-        opacity: 0.2,
+        opacity: theme === "dark" ? 0.2 : 0.3,
         width: 1,
       },
       move: {
@@ -86,7 +89,7 @@ function App() {
         value: 80,
       },
       opacity: {
-        value: 0.3,
+        value: theme === "dark" ? 0.3 : 0.4,
       },
       shape: {
         type: "circle",
@@ -103,41 +106,47 @@ function App() {
   }
 
   return (
-    <ThemeProvider>
-      <div className={styles.App} id="home">
-        {particlesInit && (
-          <Particles
-            id="tsparticles"
-            particlesLoaded={particlesLoaded}
-            options={particlesOptions}
-            init={initParticles}
-          />
-        )}
-        <Navbar />
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Testimonials />
-        <Contact />
-        <Footer />
+    <div className={styles.App} id="home">
+      {particlesInit && (
+        <Particles
+          id="tsparticles"
+          particlesLoaded={particlesLoaded}
+          options={particlesOptions}
+          init={initParticles}
+        />
+      )}
+      <Navbar />
+      <Hero />
+      <About />
+      <Experience />
+      <Projects />
+      <Testimonials />
+      <Contact />
+      <Footer />
 
-        <AnimatePresence>
-          {showScrollTop && (
-            <motion.button
-              className={styles.scrollToTop}
-              onClick={scrollToTop}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0 }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <FiArrowUp />
-            </motion.button>
-          )}
-        </AnimatePresence>
-      </div>
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            className={styles.scrollToTop}
+            onClick={scrollToTop}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <FiArrowUp />
+          </motion.button>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
     </ThemeProvider>
   );
 }
